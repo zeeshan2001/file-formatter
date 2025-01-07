@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extracted Data</title>
+</head>
+<body>
+    <h1>Extracted Data from {{ sheet_name }}</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Field Name</th>
+                <th>Data</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for field, value in data %}
+            <tr>
+                <td>{{ field }}</td>
+                <td>{{ value }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

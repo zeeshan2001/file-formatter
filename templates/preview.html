@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview Tabs</title>
+</head>
+<body>
+    <h1>Available Worksheets in {{ filename }}</h1>
+    <ul>
+        {% for sheet in sheet_names %}
+            <li><a href="/extract/{{ filename }}/{{ sheet }}">{{ sheet }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
