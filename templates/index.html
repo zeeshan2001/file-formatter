@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Upload Files</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Upload Source and Target Files</h1>
     <form action="/upload" method="post" enctype="multipart/form-data">
-        <label for="source_file">Source File:</label>
-        <input type="file" name="source_file" required><br><br>
-        
-        <label for="target_file">Target File:</label>
-        <input type="file" name="target_file" required><br><br>
-        
-        <button type="submit">Upload</button>
+      <label for="source_file">Source File:</label>
+      <input type="file" name="source_file" required /><br /><br />
+
+      <label for="target_file">Target File:</label>
+      <input type="file" name="target_file" required /><br /><br />
+
+      <button type="submit">Upload</button>
     </form>
-</body>
+  </body>
 </html>
