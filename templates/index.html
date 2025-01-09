@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload Excel File</title>
+    <title>Upload Files</title>
 </head>
 <body>
-    <h1>Upload an Excel File</h1>
+    <h1>Upload Source and Target Files</h1>
     <form action="/upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="file" required>
+        <label for="source_file">Source File:</label>
+        <input type="file" name="source_file" required><br><br>
+        
+        <label for="target_file">Target File:</label>
+        <input type="file" name="target_file" required><br><br>
+        
         <button type="submit">Upload</button>
     </form>
 </body>
