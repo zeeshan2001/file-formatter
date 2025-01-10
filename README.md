@@ -1,79 +1,126 @@
+# Flask File Processing App
 
-# File Formatter Web Application
+This project is a Flask web application that processes Excel files. It uploads a source file and a target file, extracts data from the source, and updates the target file. The processed target file can be previewed and downloaded.
 
-This is a Flask-based web application that processes and updates a target Excel sheet based on data from a source Excel sheet. It allows users to upload Excel files and automatically updates the target sheet with specified data.
+---
 
 ## Features
 
-- Upload Excel files for processing.
-- Extract specific data from a source Excel sheet and update the target sheet.
-- Download the updated target sheet.
+1. **Upload Files**:
+   - Upload a source Excel file and a target Excel file via the web interface.
+
+2. **Data Extraction and Update**:
+   - Extracts data from specific columns in the source file and updates corresponding columns in the target file.
+   - Data alignment is based on values in the target sheet's `M` and `N` columns.
+
+3. **File Preview**:
+   - Displays a preview of the updated target file.
+
+4. **Download Processed File**:
+   - Provides a download link for the processed target file.
 
 ---
 
 ## Installation
 
-1. **Clone the Repository**
+### Prerequisites
+
+- Python 3.8+
+- `pip` for managing Python packages
+- Flask
+- `openpyxl` for working with Excel files
+
+### Steps
+
+1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/file-formatter.git
-   cd file-formatter
+   git clone <repository_url>
+   cd <repository_directory>
    ```
 
-2. **Set Up a Virtual Environment** (optional, but recommended)
+2. Create a virtual environment and activate it:
    ```bash
    python -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
 
-3. **Install Dependencies**
+3. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
+
+4. Run the application:
+   ```bash
+   python app.py
+   ```
+
+5. Open your browser and go to:
+   ```
+   http://127.0.0.1:5000/
+   ```
+
+---
+
+## File Structure
+
+```
+project_directory/
+|├── app.py                 # Main Flask application
+|├── templates/           # HTML templates
+|   |├── index.html     # Upload form
+|   |├── preview.html   # Preview processed file
+|├── static/            # Static files (CSS, JS)
+|├── uploads/           # Uploaded files
+|├── output/            # Processed files
+|└── requirements.txt   # Dependencies
+```
 
 ---
 
 ## Usage
 
-1. **Run the Flask App**
-   ```bash
-   python app.py
-   ```
+1. **Upload Files**:
+   - Navigate to the homepage.
+   - Select and upload both the source and target files.
 
-2. **Access the App**
-   Open your browser and go to:  
-   `http://127.0.0.1:5000/`
+2. **Processing**:
+   - The app processes the files and updates the target sheet based on data from the source file.
 
-3. **Upload Files**
-   - Upload your target and source Excel files.
-   - The app will process the data and provide the updated target sheet for download.
+3. **Preview and Download**:
+   - Preview the updated target file in the browser.
+   - Download the processed file via the provided link.
 
 ---
 
-## Folder Structure
+## Configuration
 
-```
-file-formatter/
-├── app.py                # Main application file
-├── templates/
-│   └── index.html        # HTML template for the web interface
-├── uploads/              # Folder to store uploaded and processed files
-├── requirements.txt      # List of dependencies
-└── README.md             # Project documentation
-```
+- **Upload Folder**:
+  - Configured in `app.py`:
+    ```python
+    app.config['UPLOAD_FOLDER'] = 'uploads/'
+    app.config['OUTPUT_FOLDER'] = 'output/'
+    ```
+- Ensure the `uploads` and `output` directories exist or are created at runtime.
 
 ---
 
 ## Dependencies
 
 - Flask
-- pandas
 - openpyxl
+- Tailwind CSS (via CDN)
+- Flowbite (via CDN)
 
 ---
 
-## How It Works
+## Known Issues
 
-1. The user uploads an Excel file through the web interface.
-2. The app reads a target and a source Excel sheet.
-3. Data from the source sheet is mapped to the target sheet based on specified rows and columns.
-4. The updated target sheet is saved and provided for download.
+1. **Row Alignment**:
+   - Ensure that data alignment between source and target files is correct.
+
+2. **Missing Sheets**:
+   - Verify that the target file contains a sheet named `Financial Statements`.
+
+
+
+
