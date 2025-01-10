@@ -11,12 +11,12 @@ This project is a Flask web application that processes Excel files. It uploads a
 
 2. **Data Extraction and Update**:
    - Extracts data from specific columns in the source file and updates corresponding columns in the target file.
-   - Data alignment is based on values in the target sheet's `M` and `N` columns.
+   - Data alignment is based on values in the target sheet's `Row` (M) and `Tab` (N) columns.
 
 3. **File Preview**:
    - Displays a preview of the updated target file.
 
-4. **Download Processed File**:
+4. **Export Processed File**:
    - Provides a download link for the processed target file.
 
 ---
@@ -26,9 +26,7 @@ This project is a Flask web application that processes Excel files. It uploads a
 ### Prerequisites
 
 - Python 3.8+
-- `pip` for managing Python packages
-- Flask
-- `openpyxl` for working with Excel files
+- `pipenv` for managing Python packages and environments
 
 ### Steps
 
@@ -38,15 +36,14 @@ This project is a Flask web application that processes Excel files. It uploads a
    cd <repository_directory>
    ```
 
-2. Create a virtual environment and activate it:
+2. Set up the environment using `pipenv`:
    ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   pipenv install
    ```
 
-3. Install dependencies:
+3. Activate the virtual environment:
    ```bash
-   pip install -r requirements.txt
+   pipenv shell
    ```
 
 4. Run the application:
@@ -72,7 +69,7 @@ project_directory/
 |├── static/            # Static files (CSS, JS)
 |├── uploads/           # Uploaded files
 |├── output/            # Processed files
-|└── requirements.txt   # Dependencies
+|└── Pipfile            # Dependency management
 ```
 
 ---
@@ -94,7 +91,7 @@ project_directory/
 
 ## Configuration
 
-- **Upload Folder**:
+- **Upload Folder**: 
   - Configured in `app.py`:
     ```python
     app.config['UPLOAD_FOLDER'] = 'uploads/'
@@ -112,15 +109,4 @@ project_directory/
 - Flowbite (via CDN)
 
 ---
-
-## Known Issues
-
-1. **Row Alignment**:
-   - Ensure that data alignment between source and target files is correct.
-
-2. **Missing Sheets**:
-   - Verify that the target file contains a sheet named `Financial Statements`.
-
-
-
 
